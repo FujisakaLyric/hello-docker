@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: hello-docker-backend
+    pull_policy: never
+    container_name: hello-docker-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - 8000:8000
+
+  frontend:
+    image: hello-docker-frontend
+    pull_policy: never
+    container_name: hello-docker-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
